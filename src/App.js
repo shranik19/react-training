@@ -1,12 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
-import Game from './components/Game';
-function App() {
-  return (
-    <div className="App">
-    <Game />
+import {Link, Outlet, Route, Routes } from "react-router-dom";
+import Game from "./components/Game";
+
+export default function App(){
+  return(
+    <div>
+      <nav>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/game">Game</Link></li>
+
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home/>}>
+          <Route path="/posts" element={<Post/>}/>
+          <Route path="/game" element={<Game/>}/>
+          </Route>
+        <Route path="/game" element={<Game/>}/>
+      </Routes>
     </div>
   );
 }
 
-export default App;
+
+function Home(){
+  return(
+    <div>
+      <div>Header</div>
+      <div>Sidebar</div>
+      <Outlet/>
+      <div>Footer</div>
+    </div>
+  )
+}
+function Post(){
+  return(
+    <div>
+      My post
+    </div>
+
+  )
+}
