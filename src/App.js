@@ -4,7 +4,7 @@ import About from "./routes/About";
 import Home,{fetch} from "./routes/Home";
 import Root from "./routes/Root";
 import "./App.css";
-import NewPost, { submitPost } from "./routes/NewPost";
+import NewPost from "./routes/NewPost";
 import  Post, { postLoader } from "./routes/Post";
 export default function App()
 {
@@ -24,7 +24,7 @@ export default function App()
       {
         path:"/new",
         element:<NewPost/>,
-        action:submitPost,
+  
       },  
       {
         path:"/post/:id",
